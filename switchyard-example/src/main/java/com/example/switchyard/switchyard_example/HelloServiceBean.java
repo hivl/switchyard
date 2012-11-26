@@ -8,7 +8,7 @@ public class HelloServiceBean implements HelloService {
 	@Override
 	public String sayHello(String helloString) {
 		// TODO Auto-generated method stub
-		return "blasdfa";
+		return "blasadsfgasdfgadsfgdfa";
 	}
 
 }
