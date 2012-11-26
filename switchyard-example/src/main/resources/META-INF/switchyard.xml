@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<switchyard xmlns="urn:switchyard-config:switchyard:1.0" xmlns:bean="urn:switchyard-component-bean:config:1.0" xmlns:camel="urn:switchyard-component-camel:config:1.0" xmlns:resteasy="urn:switchyard-component-resteasy:config:1.0" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="switchyard-example" targetNamespace="urn:com.example.switchyard:switchyard-example:0.0.1-SNAPSHOT">
+  <sca:composite name="switchyard-example" targetNamespace="urn:com.example.switchyard:switchyard-example:0.0.1-SNAPSHOT">
+    <sca:service name="HelloService" promote="HelloServiceBean/HelloService">
+      <sca:interface.java interface="com.example.switchyard.switchyard_example.HelloService"/>
+      <resteasy:binding.rest>
+        <resteasy:contextMapper/>
+        <resteasy:interfaces>com.example.switchyard.switchyard_example.HelloService</resteasy:interfaces>
+        <resteasy:contextPath>switchyard-example</resteasy:contextPath>
+      </resteasy:binding.rest>
+    </sca:service>
+    <sca:component name="HelloServiceBean">
+      <bean:implementation.bean class="com.example.switchyard.switchyard_example.HelloServiceBean"/>
+      <sca:service name="HelloService">
+        <sca:interface.java interface="com.example.switchyard.switchyard_example.HelloService"/>
+      </sca:service>
+    </sca:component>
+  </sca:composite>
+</switchyard>
