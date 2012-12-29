@@ -20,6 +20,9 @@ public class test {
 	//b
 	//c
 	//d
+	//e
+	//f
+	//g
 	
 	//2. CODE
 	//codeN
