@@ -18,8 +18,6 @@ public class test {
 	//codeV
 	//a
 	//b
-	//c
-	//d
 	//e
 	//f
 	//g
