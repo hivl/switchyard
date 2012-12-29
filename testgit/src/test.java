@@ -4,4 +4,7 @@ public class test {
 	
 	//nicos kommentar
 	
+	//bla
+	//hallo
+	
 }
