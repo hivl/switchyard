@@ -18,10 +18,8 @@ public class test {
 	//codeV
 	//a
 	//b
-	
-	//e
-	//f
-	//g
+	//c
+	//d
 	
 	//2. CODE
 	//codeN
