@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<switchyard xmlns="urn:switchyard-config:switchyard:1.0" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="SellingSystem" targetNamespace="urn:com.example.switchyard:SellingSystem:1.0">
+  <sca:composite name="SellingSystem" targetNamespace="urn:com.example.switchyard:SellingSystem:1.0">
+    <sca:service name="SellingRest">
+      <sca:interface.java interface="com.example.switchyard.SellingSystem.SellingRest"/>
+    </sca:service>
+  </sca:composite>
+</switchyard>
