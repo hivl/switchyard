@@ -1,8 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<switchyard xmlns="urn:switchyard-config:switchyard:1.0" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="SellingSystem" targetNamespace="urn:com.example.switchyard:SellingSystem:1.0">
+<switchyard xmlns="urn:switchyard-config:switchyard:1.0" xmlns:bean="urn:switchyard-component-bean:config:1.0" xmlns:camel="urn:switchyard-component-camel:config:1.0" xmlns:resteasy="urn:switchyard-component-resteasy:config:1.0" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="SellingSystem" targetNamespace="urn:com.example.switchyard:SellingSystem:1.0">
   <sca:composite name="SellingSystem" targetNamespace="urn:com.example.switchyard:SellingSystem:1.0">
-    <sca:service name="SellingRest">
+    <sca:service name="SellingRest" promote="Router/SellingRest">
       <sca:interface.java interface="com.example.switchyard.SellingSystem.SellingRest"/>
+      <resteasy:binding.rest>
+        <resteasy:contextMapper/>
+        <resteasy:interfaces>com.example.switchyard.SellingSystem.SellingRest</resteasy:interfaces>
+        <resteasy:contextPath>SellingSystem</resteasy:contextPath>
+      </resteasy:binding.rest>
     </sca:service>
+    <sca:component name="Router">
+      <camel:implementation.camel>
+        <camel:xml path="route.xml"/>
+      </camel:implementation.camel>
+      <sca:service name="SellingRest">
+        <sca:interface.java interface="com.example.switchyard.SellingSystem.SellingRest"/>
+      </sca:service>
+      <sca:reference name="ReportingService">
+        <sca:interface.java interface="com.example.switchyard.SellingSystem.ReportingService"/>
+      </sca:reference>
+      <sca:reference name="MailService">
+        <sca:interface.java interface="com.example.switchyard.SellingSystem.MailService"/>
+      </sca:reference>
+    </sca:component>
+    <sca:component name="ReportingServiceBean">
+      <bean:implementation.bean class="com.example.switchyard.SellingSystem.ReportingServiceBean"/>
+      <sca:service name="ReportingService">
+        <sca:interface.java interface="com.example.switchyard.SellingSystem.ReportingService"/>
+      </sca:service>
+    </sca:component>
+    <sca:component name="MailServiceBean">
+      <bean:implementation.bean class="com.example.switchyard.SellingSystem.MailServiceBean"/>
+      <sca:service name="MailService">
+        <sca:interface.java interface="com.example.switchyard.SellingSystem.MailService"/>
+      </sca:service>
+    </sca:component>
   </sca:composite>
 </switchyard>

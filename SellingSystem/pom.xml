@@ -46,11 +46,16 @@
       <version>${switchyard.version}</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>org.switchyard.components</groupId>
       <artifactId>switchyard-component-test-mixin-cdi</artifactId>
       <version>${switchyard.version}</version>
       <scope>test</scope>
+    </dependency> -->
+    <dependency>
+      <groupId>org.switchyard.components</groupId>
+      <artifactId>switchyard-component-bean</artifactId>
+      <version>${switchyard.version}</version>
     </dependency>
   </dependencies>
   <repositories>

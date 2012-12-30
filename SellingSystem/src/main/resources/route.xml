@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<route xmlns="http://camel.apache.org/schema/spring">
+  <from uri="switchyard://SellingRest"/>
+  <log message="SellingRest - message received: ${body}"/>
+		<filter>
+			<simple>${body.count} >= 100</simple>
+			<to uri="switchyard://ReportingService" />
+		</filter>
+		<filter>
+			<simple>${body.count}  &lt; 100</simple>
+			<to uri="switchyard://MailService" />
+		</filter>
+</route>
